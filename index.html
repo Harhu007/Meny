@@ -5,70 +5,164 @@
   <title>Meny</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    :root {
+      --pink: #ffd2e8;
+      --accent: #d63384;
+      --accent-2: #9b2c6a;
+      --text: #3a2a32;
+      --card: #fff7fb;
+    }
     body {
-      background-color: pink;
+      background-color: var(--pink);
       font-family: Arial, sans-serif;
+      color: var(--text);
+      margin: 0;
       padding: 20px;
-      max-width: 600px;
-      margin: auto;
+      max-width: 720px;
+      width: 100%;
+      box-sizing: border-box;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    h1, h2, p {
+      margin: 0;
+    }
+    header {
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
     }
-    h1 {
-      color: darkred;
+    .countdown-card {
+      background: var(--card);
+      border: 2px dashed var(--accent);
+      border-radius: 12px;
+      padding: 12px 16px;
+      display: inline-flex;
+      flex-direction: column;
+      gap: 6px;
+      align-self: center;
+      min-width: 260px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     }
-    h2 {
-      text-align: center;
+    .countdown-label {
+      font-weight: bold;
+      color: var(--accent-2);
     }
-    .item {
+    .countdown-value {
+      font-size: 1.25rem;
+      letter-spacing: 0.5px;
+    }
+    .button-container {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-weight: 700;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+      transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+      display: inline-block;
+    }
+    .btn.secondary {
+      background: white;
+      color: var(--accent-2);
+      border: 2px solid var(--accent);
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.14);
+      background: var(--accent-2);
+    }
+    .btn.secondary:hover {
+      background: var(--accent);
+      color: white;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+    }
+    .menu-list {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0 10px 0;
+      display: grid;
+      gap: 10px;
+    }
+    .menu-item {
       display: flex;
       justify-content: space-between;
-      border-bottom: 1px solid #ddd;
-      padding: 8px 0;
-      background-color: #fff;
-      padding: 10px;
-      border-radius: 5px;
-      transition: background-color 0.3s;
+      align-items: center;
+      background: white;
+      border-radius: 10px;
+      padding: 12px 14px;
+      border: 1px solid rgba(0, 0, 0, 0.05);
     }
-    .item:hover {
-      background-color: #e0e0e0;
-    }
-    .menu {
-      list-style-type: none;
-      padding: 0;
-      margin: 20px;
-    }
-    .menu li {
-      margin: 10px 0;
+    .note {
+      text-align: center;
+      color: var(--accent-2);
+      font-weight: 600;
+      margin-top: 8px;
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Velg kveldens opplevelse</h1>
+    <p>Vil du se underholdning eller kveldens meny?</p>
+    <div class="countdown-card">
+      <p class="countdown-label">Nedtelling til tirsdag 20.01.2026 kl. 18:00</p>
+      <div id="countdown" class="countdown-value">Laster...</div>
+    </div>
+    <div class="button-container">
+      <a href="underholdning.html" class="btn">Se underholdning</a>
+      <a href="#kveldens-meny" class="btn secondary">Se kveldens meny</a>
+    </div>
+  </header>
 
-<h1>Kafé Meny</h1>
-
-<h2>Kaffe</h2>
-<div class="item"><span>Espresso</span><span>35 kr</span></div>
-<div class="item"><span>Cappuccino</span><span>45 kr</span></div>
-
-<h2>Mat</h2>
-<div class="item"><span>masse masse digg</span><span>65 kr</span></div>
-<div class="item"><span>Salat</span><span>95 kr</span></div>
-
-<div class="menu">
-    <h2>Meny</h2>
-    <ul>
-        <li>Caprese</li>
-        <li>Bolognese</li>
-        <li>Eplekake med vaniljeis</li>
+  <section id="kveldens-meny" class="card">
+    <h2>Kveldens meny</h2>
+    <ul class="menu-list">
+      <li class="menu-item"><span>Caprese</span><span></span></li>
+      <li class="menu-item"><span>Bolognese</span><span></span></li>
+      <li class="menu-item"><span>Eplekake med vaniljeis</span><span></span></li>
     </ul>
-    <p>Koster bare godt humør!</p>
-</div>
+    <p class="note">Koster bare godt humør!</p>
+  </section>
 
-  <h1>Velg kategori</h1>
+  <script>
+    const countdownEl = document.getElementById('countdown');
+    const target = new Date('2026-01-20T18:00:00');
 
-  <div class="button-container">
-    <a href="underholdning.html" class="btn">Underholdning</a>
-    <a href="mat.html" class="btn">Mat</a>
-  </div>
+    function updateCountdown() {
+      const now = new Date();
+      const diff = target - now;
+
+      if (diff <= 0) {
+        countdownEl.textContent = 'Nedtellingen er ferdig!';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      countdownEl.textContent = `${days}d ${hours}t ${minutes}m ${seconds}s`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
 </body>
 </html>
