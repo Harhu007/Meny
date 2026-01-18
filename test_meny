@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <title>Meny</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    .item {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #ddd;
+      padding: 8px 0;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Kafé Meny</h1>
+
+<h2>Kaffe</h2>
+<div class="item"><span>Espresso</span><span>35 kr</span></div>
+<div class="item"><span>Cappuccino</span><span>45 kr</span></div>
+
+<h2>Mat</h2>
+<div class="item"><span>Toast</span><span>65 kr</span></div>
+<div class="item"><span>Salat</span><span>95 kr</span></div>
+
+</body>
+</html>
