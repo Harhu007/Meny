@@ -5,22 +5,109 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meny</title>
     <style>
+        :root {
+          --pink: #ffd2e8;
+          --accent: #d63384;
+          --accent-2: #9b2c6a;
+          --text: #3a2a32;
+          --card: #fff7fb;
+        }
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
+          background-color: var(--pink);
+          font-family: Arial, sans-serif;
+          color: var(--text);
+          margin: 0;
+          padding: 20px;
+          max-width: 720px;
+          width: 100%;
+          box-sizing: border-box;
+          margin-left: auto;
+          margin-right: auto;
+          text-align: center;
+        }
+        h2 {
+          margin: 0 0 16px 0;
+        }
+        .card {
+          background: var(--card);
+          border-radius: 14px;
+          padding: 18px;
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+          border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+        .menu-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: grid;
+          gap: 20px;
+        }
+        .menu-item {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          background: white;
+          border-radius: 10px;
+          padding: 14px;
+          border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .menu-item span {
+          font-weight: 700;
+          font-size: 1.1rem;
+          color: var(--accent-2);
+        }
+        .menu-item img {
+          width: 100%;
+          max-width: 400px;
+          height: auto;
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          margin: 0 auto;
+        }
+        .note {
+          text-align: center;
+          color: var(--accent-2);
+          font-weight: 600;
+          margin-top: 16px;
+        }
+        .btn {
+          background: var(--accent);
+          color: white;
+          text-decoration: none;
+          padding: 12px 18px;
+          border-radius: 10px;
+          font-weight: 700;
+          box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+          transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+          display: inline-block;
+          margin-top: 20px;
+        }
+        .btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.14);
+          background: var(--accent-2);
         }
     </style>
 </head>
+<body>
   <section id="kveldens-meny" class="card">
     <h2>Kveldens meny</h2>
     <ul class="menu-list">
-      <li class="menu-item"><span>Caprese</span><span></span></li>
-        <img src="caprese.jpg" alt="caprese">
-      <li class="menu-item"><span>Bolognese</span><span></span></li>
-        <img src="bolognese.jpg" alt="bolognese">
-      <li class="menu-item"><span>Eplekake med vaniljeis</span><span></span></li>
-        <img src="eplekake.jpg" alt="eplekake">
+      <li class="menu-item">
+        <span>Caprese</span>
+        <img src="bilder/caprese.jpg" alt="Caprese">
+      </li>
+      <li class="menu-item">
+        <span>Bolognese</span>
+        <img src="bilder/bolognese.png" alt="Bolognese">
+      </li>
+      <li class="menu-item">
+        <span>Eplekake med vaniljeis</span>
+        <img src="bilder/eplekake og iskrem.jpg" alt="Eplekake med vaniljeis">
+      </li>
     </ul>
     <p class="note">Koster bare godt humør!</p>
   </section>
+  <a href="index.html" class="btn">Tilbake til forsiden</a>
+</body>
 </html>
